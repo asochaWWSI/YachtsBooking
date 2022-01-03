@@ -46,11 +46,16 @@
 
 	<div class="main">
 		{% if all_yachts %}
-            <ul>
-            {% for yacht in all_yachts %}
-                <li>Name: {{ yacht.name }}</li>
+            {% for yacht in all_yachts %}</br>
+                <div class="yacht_container">Name: {{ yacht.name }}</br>
+                    Typ: {{ yacht.type }}</br>
+                    Rok produkcji: {{ yacht.year_of_production }}</br>
+                    Silnik: {{ yacht.engine_power }}</br>
+                    Długość: {{ yacht.length }}</br>
+                    Szerokość: {{ yacht.width }}</br>
+                    Masa: {{ yacht.mass_kg }}kg
+                </div>
             {% endfor %}
-            </ul>
         {% else %}
             <p>No yachts are available.</p>
         {% endif %}
