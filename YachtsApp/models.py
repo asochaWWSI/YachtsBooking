@@ -11,7 +11,7 @@ class Customer(models.Model):
 class Yacht(models.Model):
     id = models.IntegerField(primary_key=True)
     name_yacht = models.CharField(max_length=50, null=False)
-    type_yaht = models.CharField(max_length=50, null=False)
+    type_yacht = models.CharField(max_length=50, null=False)
     year_of_production = models.DateField(null=False)
     engine_power = models.CharField(max_length=50, null=False)
     length = models.IntegerField(null=False)

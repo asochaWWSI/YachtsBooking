@@ -27,7 +27,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.IntegerField(primary_key=True, serialize=False)),
                 ('name_yacht', models.CharField(max_length=50)),
-                ('type_yaht', models.CharField(max_length=50)),
+                ('type_yacht', models.CharField(max_length=50)),
                 ('year_of_production', models.DateField()),
                 ('engine_power', models.CharField(max_length=50)),
                 ('length', models.IntegerField()),
@@ -41,8 +41,8 @@ class Migration(migrations.Migration):
                 ('id', models.IntegerField(primary_key=True, serialize=False)),
                 ('date_lend', models.DateField()),
                 ('date_return', models.DateField()),
-                ('id_customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='YahtsApp.customer')),
-                ('id_yachts', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='YahtsApp.yacht')),
+                ('id_customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='YachtsApp.customer')),
+                ('id_yachts', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='YachtsApp.yacht')),
             ],
         ),
     ]

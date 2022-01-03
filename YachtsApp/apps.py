@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class YahtsappConfig(AppConfig):
+class YachtsappConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'YahtsApp'
+    name = 'YachtsApp'
