@@ -1,77 +1,17 @@
-<!DOCTYPE html>
-<html lang="pl">
-{% load static %}
-<HEAD>
-	<title>Wynajem Łodzi</title>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="referrer" content="origin">
-    <link rel="stylesheet" href="{% static 'styl.css' %}" type="text/css" />
-</HEAD>
-<BODY> 
-
-	<section class="top_slider"><!-- Obraz na calej dlugosci + LOGO --> 
-
-	    <div id="slideshow">
-			<div class="slides"><img src="{% static 'images/Pasek.jpg'%}" class="slide_img" /></div>
-		</div>
-
-		<div class="logo" >
- 			<a href="index.html"><img src="{% static 'images/logo.jpg'%}" ></a>
-		</div>		
-
-	</section>
-
-
-	<div class="menu_top">  <!-- Przyciski przechodzenia pomiędzy podstronami  -->
-		<nav class="menu">
- 		
-				<ul>
- 
-					<li><a href="#">O NAS</a></li>
-					<li><a href="#">OFERTA</a></li>
-					<li><a href="#">PORTFOLIO</a></li>
-					<li><a href="#">KONTAKT</a></li>
- 
-				</ul>
-
-			</nav>
-	</div>
-
-	<div class="menu_left">
-		
-	</div>
-
-
-	<div class="main">
-		{% if all_yachts %}
-            {% for yacht in all_yachts %}</br>
-                <div class="yacht_container">Name: {{ yacht.name }}</br>
-                    Typ: {{ yacht.type }}</br>
-                    Rok produkcji: {{ yacht.year_of_production }}</br>
-                    Silnik: {{ yacht.engine_power }}</br>
-                    Długość: {{ yacht.length }}</br>
-                    Szerokość: {{ yacht.width }}</br>
-                    Masa: {{ yacht.mass_kg }}kg
-                </div>
-            {% endfor %}
-        {% else %}
-            <p>No yachts are available.</p>
-        {% endif %}
-	</div>
-
-
-
-
-
-
-
-
-
-	<footer>
-		<div class="footer">
- 			<p>Wykonał: Adrian Socha | z:706 | index:008919</p>
-		</div>
-	</footer>
-</BODY>
+{% extends 'YachtsApp/basic.html' %}
+{% block content %}
+{% if all_yachts %}
+    {% for yacht in all_yachts %}</br>
+        <div class="yacht_container">Name: {{ yacht.name }}</br>
+            Typ: {{ yacht.type }}</br>
+            Rok produkcji: {{ yacht.year_of_production }}</br>
+            Silnik: {{ yacht.engine_power }}</br>
+            Długość: {{ yacht.length }}</br>
+            Szerokość: {{ yacht.width }}</br>
+            Masa: {{ yacht.mass_kg }}kg
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No yachts are available.</p>
+{% endif %}
+{% endblock %}

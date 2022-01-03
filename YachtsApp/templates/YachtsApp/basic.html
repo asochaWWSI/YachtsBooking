@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pl">
+{% load static %}
+{% block head %}
+<head>
+	<title>Wynajem Łodzi</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="referrer" content="origin">
+    <link rel="stylesheet" href="{% static 'styl.css' %}" type="text/css" />
+</head>
+{% endblock %}
+<body> 
+
+	<section class="top_slider"><!-- Obraz na calej dlugosci + LOGO --> 
+
+	    <div id="slideshow">
+			<div class="slides"><img src="{% static 'images/Pasek.jpg'%}" class="slide_img" /></div>
+		</div>
+
+		<div class="logo" >
+ 			<a href="index.html"><img src="{% static 'images/logo.jpg'%}" ></a>
+		</div>		
+
+	</section>
+
+
+	<div class="menu_top">  <!-- Przyciski przechodzenia pomiędzy podstronami  -->
+		<nav class="menu">
+ 		
+				<ul>
+ 
+					<li><a href="#">O NAS</a></li>
+					<li><a href="#">OFERTA</a></li>
+					<li><a href="#">PORTFOLIO</a></li>
+					<li><a href="#">KONTAKT</a></li>
+ 
+				</ul>
+
+			</nav>
+	</div>
+
+	<div class="menu_left">
+		
+	</div>
+
+
+	<div class="main">
+        {% block content %}{% endblock %}
+	</div>
+
+
+
+
+
+
+
+
+
+	<footer>
+		<div class="footer">
+ 			<p>Wykonał: Adrian Socha | z:706 | index:008919</p>
+		</div>
+	</footer>
+</body>

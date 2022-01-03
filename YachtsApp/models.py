@@ -17,6 +17,8 @@ class Yacht(models.Model):
     length = models.IntegerField(null=False)
     width = models.IntegerField(null=False)
     mass_kg = models.IntegerField(null=False)
+    price = models.DecimalField(max_digits=8, decimal_places=2, default=666.69)
+
 
 class Booking(models.Model):
     id = models.IntegerField(primary_key=True)

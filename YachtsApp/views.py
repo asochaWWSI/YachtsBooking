@@ -7,8 +7,14 @@ from .models import Yacht
 # Create your views here.
 def index(request):
     all_yachts = Yacht.objects.all()
-    template = loader.get_template('YachtsApp/index.html')
     context = {
         'all_yachts': all_yachts,
     }
-    return HttpResponse(template.render(context, request))
+    return render(request, 'YachtsApp/index.html', context)
+
+def booking(request, yacht_id):
+    yacht = Yacht.objects.get(pk=yacht_id)
+    context = {
+        'yacht': yacht
+    }
+    return render(request, 'YachtsApp/booking.html', context)
