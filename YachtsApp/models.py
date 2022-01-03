@@ -10,8 +10,8 @@ class Customer(models.Model):
 
 class Yacht(models.Model):
     id = models.IntegerField(primary_key=True)
-    name_yacht = models.CharField(max_length=50, null=False)
-    type_yacht = models.CharField(max_length=50, null=False)
+    name = models.CharField(max_length=50, null=False)
+    type = models.CharField(max_length=50, null=False)
     year_of_production = models.DateField(null=False)
     engine_power = models.CharField(max_length=50, null=False)
     length = models.IntegerField(null=False)
@@ -22,11 +22,11 @@ class Booking(models.Model):
     id = models.IntegerField(primary_key=True)
     date_lend  = models.DateField(null=False)
     date_return = models.DateField(null=False)
-    id_customer = models.ForeignKey(
+    customer = models.ForeignKey(
         'Customer',
         on_delete=models.CASCADE,
     )
-    id_yachts = models.ForeignKey(
+    yachts = models.ForeignKey(
         'Yacht',
         on_delete=models.CASCADE,
     )
