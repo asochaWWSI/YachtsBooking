@@ -1,4 +1,37 @@
 {% extends 'YachtsApp/basic.html' %}
 {% block content %}
+    <div class="yacht_container">Nazwa: {{ yacht.name }}</br>
+            Typ: {{ yacht.type }}</br>
+            Rok produkcji: {{ yacht.year_of_production }}</br>
+            Silnik: {{ yacht.engine_power }}</br>
+            Długość: {{ yacht.length }}</br>
+            Szerokość: {{ yacht.width }}</br>
+            Masa: {{ yacht.mass_kg }}kg</br>
+            Cena: {{yacht.price}}zł</br>
+            <p>{{yacht.description}}</p>
+    </div>
+    <script type="text/javascript">
+        function updateFinalPrice() {
+            const price_per_day = {{yacht.price}}
+            const booking_start_field = document.getElementById("booking_start")
+            const booking_end_field = document.getElementById("booking_end")
+            const start_date = new Date(booking_start_field.value)
+            const end_date = new Date(booking_end_field.value)
+            const booking_days = (end_date - start_date) / 86400000
+            console.log("Price: " + price_per_day)
+            console.log("Days: " + booking_days)
+            if (start_date < Date.now() || booking_days  <= 0) {
+                const msg = "Nieprawidłowa data"
+                alert(msg)
+                throw msg
+            }
+            const price_field = document.getElementById("final_price")
+            price_field.innerText = booking_days * price_per_day
+        }
+    </script>
+    <input type="date" id="booking_start" onChange="updateFinalPrice()">
+    <input type="date" id="booking_end" onChange="updateFinalPrice()">
+    <span id="final_price"></span>zł
+
 
 {% endblock %}

@@ -2,13 +2,18 @@
 {% block content %}
 {% if all_yachts %}
     {% for yacht in all_yachts %}</br>
-        <div class="yacht_container">Name: {{ yacht.name }}</br>
+        <div class="yacht_container">Nazwa: {{ yacht.name }}</br>
             Typ: {{ yacht.type }}</br>
-            Rok produkcji: {{ yacht.year_of_production }}</br>
+            Rok produkcji: {{ yacht.year_of_production }}<br/>
             Silnik: {{ yacht.engine_power }}</br>
             Długość: {{ yacht.length }}</br>
             Szerokość: {{ yacht.width }}</br>
-            Masa: {{ yacht.mass_kg }}kg
+            Masa: {{ yacht.mass_kg }}kg</br>
+            Cena: {{yacht.price}}zł</br>
+            Opis: {{yacht.description}}
+
+            <a href="./yachts/{{yacht.id}}" >WYNAJMIJ</a>
+
         </div>
     {% endfor %}
 {% else %}

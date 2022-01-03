@@ -18,12 +18,13 @@ class Yacht(models.Model):
     width = models.IntegerField(null=False)
     mass_kg = models.IntegerField(null=False)
     price = models.DecimalField(max_digits=8, decimal_places=2, default=666.69)
-
+    description = models.CharField(max_length=500, null=True)
 
 class Booking(models.Model):
     id = models.IntegerField(primary_key=True)
     date_lend  = models.DateField(null=False)
     date_return = models.DateField(null=False)
+    final_price = models.DecimalField(max_digits=10, decimal_places=2, default=123.45)
     customer = models.ForeignKey(
         'Customer',
         on_delete=models.CASCADE,
