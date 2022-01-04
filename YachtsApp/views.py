@@ -38,7 +38,7 @@ def make_booking(request: HttpRequest):
                                                  customer=customer,
                                                  yachts=yacht)
             new_booking.save()
-            return HttpResponseRedirect(reverse('show_booking:', args=(new_booking.id,)))
+            return HttpResponseRedirect(reverse('show_booking', args=[new_booking.id]))
         else:
             s = ""
             for i in request.POST.items():
