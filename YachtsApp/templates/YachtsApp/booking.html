@@ -33,13 +33,15 @@
             }
         </script>
         <form action="./make_booking" method="post">
-        Wynajmij od    <input type="date" id="booking_start" onChange="updateFinalPrice()">
-        Wynajmij do    <input type="date" id="booking_end" onChange="updateFinalPrice()"></br>
+            {% csrf_token %}
+            <input type="hidden" id="yacht_id" name="yacht_id" value="{{yacht.id}}">
+        Wynajmij od    <input type="date" id="booking_start" name="booking_start" onChange="updateFinalPrice()">
+        Wynajmij do    <input type="date" id="booking_end" name="booking_end" onChange="updateFinalPrice()"></br>
         SUMA: <span id="final_price"></span>zł</br></br></br>
-            <input type="text" id="customer_name">Imie</br>
-            <input type="text" id="customer_surname">Nazwisko</br>
-            <input type="tel" id="customer_phone">Numer telefonu</br>
-            <input type="email" id="customer_email">Adres e-mail</br>
+            <input type="text" id="customer_name" name="customer_name">Imie</br>
+            <input type="text" id="customer_surname" name="customer_surname">Nazwisko</br>
+            <input type="tel" id="customer_phone" name="customer_phone">Numer telefonu</br>
+            <input type="email" id="customer_email" name="customer_email">Adres e-mail</br>
             <input type="submit"  value="Rezerwuj"></br>
         </form>
     </div>
