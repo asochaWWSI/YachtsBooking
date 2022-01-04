@@ -4,8 +4,8 @@
     Numer rezerwacji: {{ booking.id }}<br/>
     Początek: {{booking.date_lend}}<br/>
     Koniec: {{booking.date_return}}<br/>
-    Suma: {{booking.final_price}}<br/>
-    Klient: {{booking.customer}}<br/>
-    Jacht: {{booking.yacht}}
+    Suma: {{booking.final_price}}zł<br/>
+    Klient: {{booking.customer.email}}<br/>
+    Jacht: {{booking.yachts.name}}
 </div>
 {% endblock %}
