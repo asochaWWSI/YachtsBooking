@@ -76,9 +76,8 @@ WSGI_APPLICATION = 'YachtBooking.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'mssql',
-        'NAME': 'Z706_AdrianSocha_Yachts',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
     }
 }
 
