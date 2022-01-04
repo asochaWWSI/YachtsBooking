@@ -37,9 +37,8 @@ position: absolute;
 
 .main {
 	position: absolute;
-	top:  30%;
-	left: 25%;
-	width: 70.8%;
+	top:  35%;
+	left: 30%;
 	height: auto;
 	background-color: #D7DEE6;
 	border: 2px solid #333;
@@ -71,36 +70,26 @@ position: absolute;
 }
 .yacht_container div {
 	flex-grow: 1;
-	width: 30%;
 	min-height: 11em;
 	margin: 2px;
 	border: 2px solid #333;
 }
 
 .yacht_photo {
-	left: 0px;
 	background-color:#9fb2c7;
+	max-width: 30%;
 }
 .yacht_data {
-	left: 30%;
 	background-color:#a8c6eb;
 	padding: 0.5em;
 }
 .yacht_containe_button{
-	left: 60%;
 	height: 2em;
 	background-color:#1466c4;
 	padding: 0.5em;
 }
-.information{
-	top:  30%;
-	left: 3%;
-	width: 90%;
-	height: 40%;
-	background-color: #D7DEE6;
-	border: 2px solid #333;
-	padding: 2%;
-	overflow: hidden;
+.yacht_booking div {
+	display: block;
 }
 .basic_information{
 	width: 105%;

@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 {% if all_yachts %}
+    <div class="yachts_list">
     {% for yacht in all_yachts %}</br>
         <div class="yacht_container">
             <div class="yacht_photo">
@@ -26,6 +27,7 @@
             </div></a>
         </div>
     {% endfor %}
+    </div>
 {% else %}
     <p>No yachts are available.</p>
 {% endif %}

@@ -1,5 +1,6 @@
 {% extends 'YachtsApp/basic.html' %}
 {% block content %}
+<div class="yacht_booking">
     <div class="yacht_container">Nazwa: {{ yacht.name }}</br>
             Typ: {{ yacht.type }}</br>
             Rok produkcji: {{ yacht.year_of_production }}</br>
@@ -10,9 +11,8 @@
             Cena: {{yacht.price}}zł</br>
             <p>{{yacht.description}}</p>
     </div>
-    <div class="information">
-
-        <div class="basic_information">
+    
+    <div class="basic_information">
         <script type="text/javascript">
             function updateFinalPrice() {
                 const price_per_day = {{yacht.price}}
@@ -43,4 +43,5 @@
             <input type="submit"  value="Rezerwuj"></br>
         </form>
     </div>
+</div>
 {% endblock %}
