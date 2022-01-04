@@ -1,6 +1,7 @@
 body {
   background-color: #EDE7F6;
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
 }
 img { 
   width: 100%;
@@ -88,18 +89,33 @@ img {
 	background-color:#1466c4;
 	padding: 0.5em;
 }
-.yacht_booking div {
+.yacht_booking {
 	display: flex;
-}
-.basic_information{
-	width: 105%;
-	height: auto;
-	background-color: #D7DEE6;
+	flex-direction: column;
+	align-items: stretch;
 	border: 2px solid #333;
-	padding: 2%;
-	
-	margin:-3%;
 }
+.yacht_booking div {
+	border: none;
+}
+.yacht_booking .yacht_container {
+	flex-direction: row;
+}
+.yacht_booking .yacht_container .yacht_props {
+	flex-direction: column;
+}
+.yacht_booking .yacht_container .yacht_desc {
+	margin-left: 5em;
+}
+.yacht_booking .basic_information {
+	margin-top: 2em;
+	background-color: #D7DEE6;
+}
+
+.booking_data {
+	padding: 1em;
+}
+
 .footer {
   position: fixed;
   left: 0;

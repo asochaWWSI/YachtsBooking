@@ -1,37 +1,44 @@
 {% extends 'YachtsApp/basic.html' %}
 {% block content %}
+<script type="text/javascript">
+    function updateFinalPrice() {
+        const price_per_day = {{yacht.price}}
+        const booking_start_field = document.getElementById("booking_start")
+        const booking_end_field = document.getElementById("booking_end")
+        const start_date = new Date(booking_start_field.value)
+        const end_date = new Date(booking_end_field.value)
+        const booking_days = (end_date - start_date) / 86400000
+        console.log("Price: " + price_per_day)
+        console.log("Days: " + booking_days)
+        if (start_date < Date.now() || booking_days  <= 0) {
+            const msg = "Nieprawidłowa data"
+            alert(msg)
+            throw msg
+        }
+        const price_field = document.getElementById("final_price")
+        price_field.innerText = booking_days * price_per_day
+    }
+</script>
 <div class="yacht_booking">
-    <div class="yacht_container">Nazwa: {{ yacht.name }}</br>
-            Typ: {{ yacht.type }}</br>
-            Rok produkcji: {{ yacht.year_of_production }}</br>
-            Silnik: {{ yacht.engine_power }}</br>
-            Długość: {{ yacht.length }}</br>
-            Szerokość: {{ yacht.width }}</br>
-            Masa: {{ yacht.mass_kg }}kg</br>
-            Cena: {{yacht.price}}zł</br>
-            <p>{{yacht.description}}</p>
+    <div class="yacht_container">
+            <article class="yacht_props">
+                <strong>Nazwa:</strong> {{ yacht.name }}</br>
+                <strong>Typ:</strong> {{ yacht.type }}</br>
+                <strong>Rok produkcji:</strong> {{ yacht.year_of_production }}</br>
+                <strong>Silnik:</strong> {{ yacht.engine_power }}</br>
+                <strong>Długość:</strong> {{ yacht.length }}</br>
+                <strong>Szerokość:</strong> {{ yacht.width }}</br>
+                <strong>Masa:</strong> {{ yacht.mass_kg }}kg</br>
+                <strong>Cena za dobę:</strong> {{yacht.price}}zł</br>
+            </article>
+            <article class="yacht_desc">
+                <h4>Opis:</h4>
+                <p>{{yacht.description}}</p>
+            </article>
     </div>
     
     <div class="basic_information">
-        <script type="text/javascript">
-            function updateFinalPrice() {
-                const price_per_day = {{yacht.price}}
-                const booking_start_field = document.getElementById("booking_start")
-                const booking_end_field = document.getElementById("booking_end")
-                const start_date = new Date(booking_start_field.value)
-                const end_date = new Date(booking_end_field.value)
-                const booking_days = (end_date - start_date) / 86400000
-                console.log("Price: " + price_per_day)
-                console.log("Days: " + booking_days)
-                if (start_date < Date.now() || booking_days  <= 0) {
-                    const msg = "Nieprawidłowa data"
-                    alert(msg)
-                    throw msg
-                }
-                const price_field = document.getElementById("final_price")
-                price_field.innerText = booking_days * price_per_day
-            }
-        </script>
+        
         <form action="./make_booking" method="post">
             {% csrf_token %}
             <input type="hidden" id="yacht_id" name="yacht_id" value="{{yacht.id}}">
@@ -41,7 +48,7 @@
             <input type="text" id="customer_name" name="customer_name">Imie</br>
             <input type="text" id="customer_surname" name="customer_surname">Nazwisko</br>
             <input type="tel" id="customer_phone" name="customer_phone">Numer telefonu</br>
-            <input type="email" id="customer_email" name="customer_email">Adres e-mail</br>
+            <input type="email" id="customer_email" name="customer_email">Adres e-mail</br></br>
             <input type="submit"  value="Rezerwuj"></br>
         </form>
     </div>
