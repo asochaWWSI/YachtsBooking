@@ -1,29 +1,27 @@
 body {
   background-color: #EDE7F6;
+  font-family: Arial, Helvetica, sans-serif;
 }
 img { 
   width: 100%;
   height: auto;
 }
 .top_slider {
-position: absolute;
-	top:  0px;
-	left: 0px;
-	width: 99,9%;
+	width: 100%;
 	height: 30%;
 	background-color: #D7DEE6;
 	overflow: hidden;
 	border: 2px solid #333;
  
 }
+
  
 .slide_img {
 	display: block;
-	position: relative;
 	width: 100%;
-	height: auto;
-	overflow: hidden;
+	height: 25vh;
 	z-index: 1;
+	object-fit: cover;
 }
 .logo {
 	position: absolute;
@@ -35,29 +33,31 @@ position: absolute;
 	border: 2px solid #333;
 }
 
-.main {
-	position: absolute;
-	top:  35%;
-	left: 30%;
-	height: auto;
-	background-color: #D7DEE6;
-	border: 2px solid #333;
-	padding: 2%;
+.navbar {
+	display: block;
+	width: 100%;
+	z-index: 3;
 	overflow: hidden;
- 
-}
-.yacht_container {
-	border: 2px solid #333;
+ 	background-color: #333;
+
 }
 
-.menu_left {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 25vw;
-	height: 100vh;
-	padding: 35vh 2% 2% 2%;
-	background-color:#D7DEE6;
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: red;
+}
+
+.main {
+	margin: 2em;
+	background-color: #D7DEE6;
 	border: 2px solid #333;
 }
 
@@ -89,7 +89,7 @@ position: absolute;
 	padding: 0.5em;
 }
 .yacht_booking div {
-	display: block;
+	display: flex;
 }
 .basic_information{
 	width: 105%;
@@ -114,71 +114,3 @@ position: absolute;
 
 
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.navbar {
-	position: absolute;
-	top: 30%;
-	left: 0;
-	z-index: 3;
-	overflow: hidden;
- 	background-color: #333;
-	width: 100vw;
-}
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
