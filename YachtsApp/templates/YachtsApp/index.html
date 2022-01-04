@@ -1,10 +1,13 @@
 {% extends 'YachtsApp/basic.html' %}
+{% load static %}
 {% block content %}
 {% if all_yachts %}
     {% for yacht in all_yachts %}</br>
         <div class="yacht_container">
             <div class="yacht_photo">
-                
+                {% with img_src='images/yacht-'|add:yacht.name|add:'.jpg' %}
+                <img src="{% static img_src %}">
+                {% endwith %}
             </div>
 
             <div class="yacht_data">
@@ -18,9 +21,9 @@
                 Cena: {{yacht.price}}zł</br>
                 Opis: {{yacht.description}}</br>
             </div>
-            <div class="yacht_containe_button">
-                <a href="./yachts/{{yacht.id}}" >WYNAJMIJ</a>
-            </div>
+            <a href="./yachts/{{yacht.id}}" ><div class="yacht_containe_button">
+                WYNAJMIJ
+            </div></a>
         </div>
     {% endfor %}
 {% else %}
