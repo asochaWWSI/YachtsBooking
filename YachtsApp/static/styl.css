@@ -1,9 +1,10 @@
 body {
   background-color: #EDE7F6;
 }
-td { border: 1px solid black; }
-th { border: 2px solid black; }
-
+img { 
+  width: 100%;
+  height: auto;
+}
 .top_slider {
 position: absolute;
 	top:  0px;
@@ -12,7 +13,7 @@ position: absolute;
 	height: 30%;
 	background-color: #D7DEE6;
 	overflow: hidden;
-	border: 2px solid #73AD21;
+	border: 2px solid #333;
  
 }
  
@@ -22,6 +23,7 @@ position: absolute;
 	width: 100%;
 	height: auto;
 	overflow: hidden;
+	z-index: 1;
 }
 .logo {
 	position: absolute;
@@ -29,30 +31,25 @@ position: absolute;
 	right: 5%;
 	width: 95px;
 	height: 97px;
+	z-index: 2;
 
-  border: 2px solid #73AD21;
+  border: 2px solid #333;
 }
-.menu_top{
-	position: absolute;
-	top: 16%;
-	left: 4%;
-	width: 8%;
- 	height: 90px;
-}
+
 .main {
 	position: absolute;
 	top:  30%;
 	left: 25%;
 	width: 70.8%;
-	height: 100%;
+	height: auto;
 	background-color: #D7DEE6;
-	border: 2px solid #73AD21;
+	border: 2px solid #333;
 	padding: 2%;
 	overflow: hidden;
  
 }
 .yacht_container {
-	border: 2px solid #73AD21;
+	border: 2px solid #333;
 }
 
 .menu_left {
@@ -62,10 +59,62 @@ position: absolute;
 	width: 25%;
 	height: 100%;
 	background-color:#D7DEE6;
-	border: 2px solid #73AD21;
+	border: 2px solid #333;
 	padding: 2%;
 }
 
+.yacht_container{
+	background-color:#D7DEE6;
+	border: 2px solid #333;
+	padding: 1%;
+}
+
+.yacht_photo{
+	display: inline-block;
+	left: 0px;
+	width: 30%;
+	height: 10em;
+	min-height: 11em;
+	background-color:#9fb2c7;
+	border: 2px solid #333;
+}
+.yacht_data{
+	display: inline-block;
+	left: 30%;
+	width: 30%;
+	min-height: 11em;
+	background-color:#a8c6eb;
+	border: 1px solid #333;
+	padding: 2%;
+}
+.yacht_containe_button{
+	display: inline-block;
+	left: 60%;
+	width: 30%;
+	background-color:#1466c4;
+	border: 1px solid #333;
+	padding: 2%;
+}
+.information{
+	position: absolute;
+	top:  30%;
+	left: 3%;
+	width: 90%;
+	height: 40%;
+	background-color: #D7DEE6;
+	border: 2px solid #333;
+	padding: 2%;
+	overflow: hidden;
+}
+.basic_information{
+	width: 105%;
+	height: auto;
+	background-color: #D7DEE6;
+	border: 2px solid #333;
+	padding: 2%;
+	
+	margin:-3%;
+}
 .footer {
   position: fixed;
   left: 0;
@@ -73,5 +122,78 @@ position: absolute;
   width: 100%;
   background-color: #D7DEE6;
   text-align: center;
-  border: 2px solid #73AD21;
+  border: 2px solid #333;
+}
+
+
+
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+	position: absolute;
+	top: 30%;
+	left: 0;
+	z-index: 3;
+	overflow: hidden;
+ 	background-color: #333;
+	width: 100vw;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }

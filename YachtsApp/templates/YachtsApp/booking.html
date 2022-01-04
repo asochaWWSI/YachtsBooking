@@ -10,28 +10,37 @@
             Cena: {{yacht.price}}zł</br>
             <p>{{yacht.description}}</p>
     </div>
-    <script type="text/javascript">
-        function updateFinalPrice() {
-            const price_per_day = {{yacht.price}}
-            const booking_start_field = document.getElementById("booking_start")
-            const booking_end_field = document.getElementById("booking_end")
-            const start_date = new Date(booking_start_field.value)
-            const end_date = new Date(booking_end_field.value)
-            const booking_days = (end_date - start_date) / 86400000
-            console.log("Price: " + price_per_day)
-            console.log("Days: " + booking_days)
-            if (start_date < Date.now() || booking_days  <= 0) {
-                const msg = "Nieprawidłowa data"
-                alert(msg)
-                throw msg
+    <div class="information">
+
+        <div class="basic_information">
+        <script type="text/javascript">
+            function updateFinalPrice() {
+                const price_per_day = {{yacht.price}}
+                const booking_start_field = document.getElementById("booking_start")
+                const booking_end_field = document.getElementById("booking_end")
+                const start_date = new Date(booking_start_field.value)
+                const end_date = new Date(booking_end_field.value)
+                const booking_days = (end_date - start_date) / 86400000
+                console.log("Price: " + price_per_day)
+                console.log("Days: " + booking_days)
+                if (start_date < Date.now() || booking_days  <= 0) {
+                    const msg = "Nieprawidłowa data"
+                    alert(msg)
+                    throw msg
+                }
+                const price_field = document.getElementById("final_price")
+                price_field.innerText = booking_days * price_per_day
             }
-            const price_field = document.getElementById("final_price")
-            price_field.innerText = booking_days * price_per_day
-        }
-    </script>
-    <input type="date" id="booking_start" onChange="updateFinalPrice()">
-    <input type="date" id="booking_end" onChange="updateFinalPrice()">
-    <span id="final_price"></span>zł
-
-
+        </script>
+        <form action="./make_booking" method="post">
+        Wynajmij od    <input type="date" id="booking_start" onChange="updateFinalPrice()">
+        Wynajmij do    <input type="date" id="booking_end" onChange="updateFinalPrice()"></br>
+        SUMA: <span id="final_price"></span>zł</br></br></br>
+            <input type="text" id="customer_name">Imie</br>
+            <input type="text" id="customer_surname">Nazwisko</br>
+            <input type="tel" id="customer_phone">Numer telefonu</br>
+            <input type="email" id="customer_email">Adres e-mail</br>
+            <input type="submit"  value="Rezerwuj"></br>
+        </form>
+    </div>
 {% endblock %}

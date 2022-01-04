@@ -26,9 +26,25 @@
 	</section>
 
 
-	<div class="menu_top">  <!-- Przyciski przechodzenia pomiędzy podstronami  -->
-		<nav class="menu">
- 		
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div> 
+</div>
+
+
+	<div class="menu_left">
+				<nav class="menu">
 				<ul>
  
 					<li><a href="#">O NAS</a></li>
@@ -37,24 +53,15 @@
 					<li><a href="#">KONTAKT</a></li>
  
 				</ul>
-
 			</nav>
-	</div>
-
-	<div class="menu_left">
-		
+            
 	</div>
 
 
 	<div class="main">
         {% block content %}{% endblock %}
+        
 	</div>
-
-
-
-
-
-
 
 
 
