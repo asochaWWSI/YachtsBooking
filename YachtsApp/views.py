@@ -28,8 +28,10 @@ def make_booking(request: HttpRequest):
         if form.is_valid():
             form_data = form.cleaned_data
             yacht = Yacht.objects.get(pk=form_data['yacht_id'])
-            customer = Customer.objects.get(email=form_data['customer_email'])
-            # XXX: calculate price server-side
+            (customer, _) = Customer.objects.get_or_create(email=form_data['customer_email'],
+                                                           name=form_data['customer_name'],
+                                                           surname=form_data['customer_surname'],
+                                                           telephone=form_data['customer_phone'])
             duration = form_data['booking_end'] - form_data['booking_start']
             final_price = duration.days * yacht.price
             new_booking = Booking.objects.create(date_lend=form_data['booking_start'],
